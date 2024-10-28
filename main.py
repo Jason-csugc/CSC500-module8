@@ -18,10 +18,13 @@ def print_menu()->None:
     return user_input
 
 
-user_name = input('What is your name? ')
-today_date = datetime.date.today()
+user_name = input('Enter customer\'s name:\n')
+today_date = datetime.datetime.strptime(input('Enter today\'s date:\n'), "%B %d, %Y")
 
 cart = shopping_cart.ShoppingCart(cart_name=user_name, date=today_date.strftime("%B %d, %Y"))
+
+print('Customer name: ' + user_name)
+print('Today\'s date: ' + today_date.strftime("%B %d, %Y"))
 user_selection = print_menu()
 
 while user_selection != 'q':
