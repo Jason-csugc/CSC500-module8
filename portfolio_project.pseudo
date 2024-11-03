@@ -1,0 +1,104 @@
+class ItemToPurchase
+    Constructor 
+        name = None
+        price = 0
+        quantity = 0
+    
+    method print_item_cost
+        output name quantity @ $price = $(quantity * price)
+
+class ShoppingCart
+    Constructor 
+        name = None
+        current_date = 'January 1, 2020'
+        cart_items = []
+
+    method add_item (ItemToPurchase)
+        put ItemToPurchase in cart_items
+    
+    method remove_item(item_name)
+        remove ItemToPurchase by name from cart_items
+    
+    method modify_item(ItemToPurchase)
+        if item exists by name
+            if description not default
+                put new description to cart_item
+            if price not default
+                put new price to cart_item
+            if quantity not default
+                put new quantity to cart_item
+        else
+            output "Item not found in cart. Nothing modified."
+    
+    method get_num_items_in_cart()
+        count = 0
+        foreach item in cart_items
+           count += item.quantity
+        
+        return count
+    
+    method get_cost_of_cart()
+        cost = 0
+        foreach item in cart_items
+           cost += item.quantity * item.cost
+
+        return cost
+    
+    method print_total()
+        output name + '\'s Shopping Cart - ' + current_date
+        output Number of items: + get_num_items_in_cart
+        foreach item in cart_items
+           item.print_item_cost
+    
+    method print_descriptions()
+        output name + '\'s Shopping Cart - ' + current_date
+        output Item Descriptions
+        foreach item in cart_items
+            output item.description
+    
+method print_menu()
+    output MENU
+    output a - Add item to cart
+    output r - Remove item from cart
+    output c - Change item quantity
+    output i - Output items Descriptions
+    output o - Output shopping cart
+    output q - quit
+
+    user_input = get 'Choose an options'
+    return user_input
+
+user_name = get 'Enter customer's name:'
+today_date = get 'Enter today's date:
+
+cart = create ShoppingCart(user_name, today_date)
+
+output 'Customer name:' + user_name
+output 'Today's date:' + today_date
+user_selection = print_menu()
+
+while user_selection not 'q'
+    if user_selection equals 'a'
+        new_item_name = get 'New item name:'
+        new_item_description = get 'New item description:'
+        new_item_price = get 'New item price:'
+        new_item_quantity = get 'New item quantity:'
+        cart.add_item(create ItemToPurchase(name, description, price, quantity))
+    else if user_selection equals 'r'
+        user_item = get 'Item name to remove'
+        cart.remove_item(user_item)
+    else if user_selection equals 'c'
+        name = get 'Item to update:'
+        qty = get 'New quantity:'
+        cart.modify_item(create ItemToPurchase(name, quantity))
+    else if user_selection equals 'i'
+        cart.print_descriptions()
+    else if user_selection = 'o'
+        cart.print_total()
+    else if user_selection = 'q'
+        exit()
+    
+    user_selection = print_menu()
+
+    
+       
