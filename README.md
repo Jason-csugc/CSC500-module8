@@ -32,7 +32,7 @@ New item price: 6.99 \
 New item Quantity: 4 \
 MENU \
 a - Add item to cart \
-r - Remove item from cart \  
+r - Remove item from cart \
 c - Change item quantity \
 i - Output items' descriptions \
 o - Output shopping cart \
@@ -42,10 +42,10 @@ Item to update: Blueberries \
 New quantity: 3 \
 MENU \
 a - Add item to cart \
-r - Remove item from cart \  
-c - Change item quantity \  
+r - Remove item from cart \
+c - Change item quantity \
 i - Output items' descriptions \
-o - Output shopping cart \  
+o - Output shopping cart \
 q - Quit \
 Choose an option: i \
 Jason Real' Shopping Cart - November 03, 2024 \
@@ -72,4 +72,4 @@ c - Change item quantity \
 i - Output items' descriptions \
 o - Output shopping cart \
 q - Quit \
-Choose an option: q \
+Choose an option: q

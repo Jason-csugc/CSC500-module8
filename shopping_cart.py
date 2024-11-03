@@ -73,7 +73,7 @@ class ShoppingCart:
         print(f'{self.customer_name}\'s Shopping Cart - {self.current_date}')
         print(f'Number of Items: {self.get_num_items_in_cart()}')
         for item in self.cart_items:
-            print(item.print_item_cost())
+            item.print_item_cost()
         print(f'Total: ${self.get_cost_of_cart():.2f}')
 
     def print_descriptions(self)-> None:
